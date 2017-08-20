@@ -51,9 +51,8 @@ function validateForm() {
 
         // Check if input field is not empty and if input field type is email, then check if value is a valid Dutch phonenumber
         if (inputAll[i].type === 'tel' && !elInvalid) {
-            var landline = /^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/;
-            var mobile = /^(((\\+31|0|0031)6){1}[1-9]{1}[0-9]{7})$/i;
-            correct = (landline.test(inputAll[i].value) || mobile.test(inputAll[i].value));
+            regEx = /^((((0031)|(\+31))(\-)?6(\-)?[0-9]{8})|(06(\-)?[0-9]{8})|(((0031)|(\+31))(\-)?[1-9]{1}(([0-9](\-)?[0-9]{7})|([0-9]{2}(\-)?[0-9]{6})))|([0]{1}[1-9]{1}(([0-9](\-)?[0-9]{7})|([0-9]{2}(\-)?[0-9]{6}))))$/;
+            correct = regEx.test(inputAll[i].value);
             if (!correct) {
                 invalid = true;
                 elInvalid = true;
