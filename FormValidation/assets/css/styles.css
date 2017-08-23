@@ -12,6 +12,11 @@ label {
 input {
 	border-color: #ccc;
 }
+
+input.error {
+	border-color: #f00;
+}
+
 label,
 input[type="submit"] {
 	margin-top: 15px;
