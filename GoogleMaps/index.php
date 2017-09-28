@@ -5,5 +5,5 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<div id="map"></div>
+<div id="map" class="map"></div>
 </body>
