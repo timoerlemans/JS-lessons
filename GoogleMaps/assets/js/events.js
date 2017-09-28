@@ -51,4 +51,15 @@ function createMarker(position) {
         position: position,
         map: map
     });
+
+    createInfoWindow(marker, '<p>Dit is je huidige locatie</p>');
+}
+
+function createInfoWindow(marker, content) {
+    var infowindow = new google.maps.InfoWindow({
+        content: content
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
 }
