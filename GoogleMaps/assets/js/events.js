@@ -1,7 +1,7 @@
 // Check if document is ready
 document.addEventListener('DOMContentLoaded', initGMaps, false);
 // Set some global vars
-var latlong = [],
+var userLoc = {},
 map;
 // Run this function when document is ready
 function initGMaps() {
@@ -15,6 +15,8 @@ function initGMaps() {
         'language=nl',
         'key=' + GoogleMapsApiKey
     ].join('&');
+    script.setAttribute('async', '');
+    script.setAttribute('defer', '');
     document.body.appendChild(script);
     loadMap();
 }
@@ -24,21 +26,29 @@ function loadMap() {
         center: {lat: -34.397, lng: 150.644},
         zoom: 8
     });
+    getUserLocation();
 }
 
 function getUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showUserLocation);
     } else {
-       latlong.push(-34.397);
-       latlong.push(150.644);
+        console.log('Can\'t find position of user');
     }
 }
 
 function showUserLocation(position) {
-    var lat = parseFloat(position.coords.latitude, 3);
-    var long = parseFloat(position.coords.longitude, 3);
+    userLoc = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+    map.setCenter(userLoc);
+    createMarker(userLoc);
+}
 
-    latlong.push(lat);
-    latlong.push(long);
+function createMarker(position) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
 }
