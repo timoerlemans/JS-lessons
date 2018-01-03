@@ -43,6 +43,7 @@ function showUserLocation(position) {
         lng: position.coords.longitude
     };
     map.setCenter(userLoc);
+    map.setZoom(14);
     createMarker(userLoc);
 }
 
