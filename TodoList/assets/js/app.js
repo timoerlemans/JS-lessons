@@ -1,8 +1,23 @@
-document.addEventListener('DOMContentLoaded', init, false);
+$(function() {
+  var taskForm = $('.js-add-item'),
+    taskInput = $('.js-task-input'),
+    todoList = $('.js-todolist'),
+    taskInputVal;
 
-// Run this function when document is ready
-function init() {
-	// Add event listener on submit button
-	console.log('waddup');
-  //  document.querySelector('form').addEventListener('submit', validateForm);
-}
+  if ($('.js-list-item-default').length > 0) {
+    var defaultListItem = $('.js-list-item-default');
+  }
+
+  $('.js-add-item').on('submit', addTask);
+
+  function addTask(e) {
+    e.preventDefault();
+    var taskInputVal = taskInput.val();
+
+    todoList.prepend('<li class="todo-list__item">' + taskInputVal + '</li>');
+
+    if (defaultListItem.length > 0) {
+      defaultListItem.remove();
+    }
+  }
+});

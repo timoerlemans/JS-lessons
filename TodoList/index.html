@@ -1,15 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tim's To do list</title>
 	<link rel="stylesheet" href="./assets/css/styles.css">
-	</head>
-	<body>
-		<h1>To Do List</h1>
+</head>
 
-		<script src="./assets/js/app.js"></script>
-	</body>
+<body>
+	<div class="site-wrapper">
+		<h1>To Do List</h1>
+		<form class="js-add-item">
+			<input type="text" class="form__input js-task-input">
+			<input type="submit">
+		</form>
+
+		<ul class="todo-list js-todolist">
+			<li class="todo-list__item todo-list__item--default js-list-item-default">Deze lijst is nog leeg...</li>
+		</ul>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+	    crossorigin="anonymous"></script>
+	<script src="./assets/js/app.js"></script>
+</body>
+
+</html>

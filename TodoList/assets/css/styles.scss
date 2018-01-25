@@ -1,1 +1,25 @@
 @import 'vendor/normalize';
+
+.site-wrapper {
+	max-width: 50%;
+	margin: 0 auto;
+}
+
+.todolist {
+	margin: 50px 0 0;
+	padding: 0;
+	list-style-type: none;
+
+	li {
+		padding: 10px;
+		border-top: 1px solid #cecece;
+
+		&:nth-child(even) {
+			background: #cecece;
+		}
+
+		&:last-child {
+			border-bottom: 1px solid #cecece;
+		}
+	}
+}
